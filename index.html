@@ -4,38 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بوم مدل کسب‌وکار</title>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
   <style>
+    :root {
+      --primary-color: #4a00e0;
+      --secondary-color: #8e2de2;
+      --background: #f9fafc;
+      --box-bg: #ffffff;
+      --accent: #eef4ff;
+      --text-color: #333333;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Tahoma', sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: var(--background);
       margin: 0;
       padding: 0;
       direction: rtl;
+      color: var(--text-color);
     }
+
     header {
-      background-color: #3a7bd5;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
-      padding: 1rem;
+      padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 8px 20px var(--shadow);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      position: relative;
     }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 6px;
+      background-color: white;
+      border-radius: 3px;
+      opacity: 0.5;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
     .canvas {
       display: grid;
+      grid-template-columns: repeat(4, 1fr);
       grid-template-areas:
-        "key-partners key-activities value-propositions customer-relationships customer-segments"
-        "key-resources key-resources value-propositions channels customer-segments"
-        "cost-structure cost-structure revenue-streams revenue-streams revenue-streams";
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      padding: 20px;
+        "key-partners key-activities value-propositions customer-relationships"
+        "key-resources key-resources value-propositions customer-segments"
+        "channels channels value-propositions customer-segments"
+        "cost-structure cost-structure revenue-streams revenue-streams";
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1300px;
+      margin: auto;
     }
+
     .box {
-      background: #fff;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      font-size: 14px;
+      background: var(--box-bg);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px var(--shadow);
+      transition: all 0.3s ease-in-out;
     }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px var(--shadow);
+    }
+
+    .value-propositions {
+      background: var(--accent);
+    }
+
     .key-partners { grid-area: key-partners; }
     .key-activities { grid-area: key-activities; }
     .value-propositions { grid-area: value-propositions; }
@@ -45,12 +100,35 @@
     .channels { grid-area: channels; }
     .cost-structure { grid-area: cost-structure; }
     .revenue-streams { grid-area: revenue-streams; }
-    footer {
-      text-align: center;
-      background-color: #3a7bd5;
+
+    .canvas .box h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
       color: white;
-      padding: 1rem;
-      margin-top: 20px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .canvas ul {
+      padding-right: 20px;
+      margin: 0;
+      list-style-type: disc;
+    }
+
+    .canvas li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #2b2b2b;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.95rem;
+      margin-top: 50px;
     }
   </style>
 </head>
@@ -63,82 +141,72 @@
     <div class="box key-partners">
       <h3>شرکای کلیدی</h3>
       <ul>
-        <li>بانک‌ها و شرکت‌های پرداخت</li>
-        <li>مارکت‌های اپلیکیشن</li>
-        <li>تیم توسعه نرم‌افزار</li>
-        <li>شرکای تبلیغاتی</li>
+        <li>شرکت‌های توسعه‌دهنده نرم‌افزار</li>
+        <li>بانک‌ها و مؤسسات مالی</li>
+        <li>ارائه‌دهندگان خدمات ابری</li>
       </ul>
     </div>
     <div class="box key-activities">
       <h3>فعالیت‌های کلیدی</h3>
       <ul>
         <li>توسعه اپلیکیشن</li>
-        <li>تولید محتوای آموزشی</li>
-        <li>تحلیل اطلاعات مالی</li>
-        <li>بازاریابی و پشتیبانی</li>
+        <li>تحلیل داده‌های مالی</li>
+        <li>پشتیبانی فنی</li>
       </ul>
     </div>
     <div class="box value-propositions">
       <h3>ارزش پیشنهادی</h3>
       <ul>
-        <li>مدیریت ساده دخل و خرج</li>
-        <li>گزارش‌های مالی دقیق</li>
-        <li>یادآوری پرداخت‌ها</li>
-        <li>هدف‌گذاری پس‌انداز</li>
+        <li>مدیریت ساده و مؤثر مالی</li>
+        <li>تحلیل هزینه‌ها و درآمدها</li>
+        <li>یادآوری پرداخت‌ها و قبوض</li>
       </ul>
     </div>
     <div class="box customer-relationships">
-      <h3>ارتباط با مشتری</h3>
+      <h3>روابط با مشتری</h3>
       <ul>
         <li>پشتیبانی آنلاین</li>
-        <li>راهنمای درون‌برنامه</li>
-        <li>ارسال گزارش‌ها</li>
-        <li>نظرسنجی از کاربران</li>
+        <li>پیشنهادات و راهکارهای شخصی‌سازی‌شده</li>
       </ul>
     </div>
     <div class="box customer-segments">
       <h3>بخش‌بندی مشتریان</h3>
       <ul>
-        <li>دانش‌آموزان و دانشجویان</li>
-        <li>کارمندان و فریلنسرها</li>
-        <li>خانواده‌ها</li>
-        <li>بازنشستگان</li>
+        <li>دانشجویان و افراد کم‌درآمد</li>
+        <li>کارمندان و خانواده‌ها</li>
+        <li>افراد علاقه‌مند به بودجه‌بندی دقیق</li>
       </ul>
     </div>
     <div class="box key-resources">
       <h3>منابع کلیدی</h3>
       <ul>
-        <li>تیم فنی و مشاوران مالی</li>
-        <li>زیرساخت سرور و نرم‌افزار</li>
-        <li>محتوای آموزشی</li>
-        <li>سرمایه اولیه</li>
+        <li>تیم برنامه‌نویسی</li>
+        <li>پایگاه داده امن</li>
+        <li>سرور و زیرساخت ابری</li>
       </ul>
     </div>
     <div class="box channels">
-      <h3>کانال‌های توزیع</h3>
+      <h3>کانال‌های ارتباطی</h3>
       <ul>
-        <li>فروشگاه‌های اپلیکیشن</li>
+        <li>اپ استورها (Google Play, App Store)</li>
+        <li>رسانه‌های اجتماعی</li>
         <li>وب‌سایت رسمی</li>
-        <li>شبکه‌های اجتماعی</li>
-        <li>معرفی از طریق تبلیغات</li>
       </ul>
     </div>
     <div class="box cost-structure">
       <h3>ساختار هزینه</h3>
       <ul>
-        <li>توسعه نرم‌افزار</li>
-        <li>زیرساخت سرور</li>
+        <li>هزینه توسعه نرم‌افزار</li>
         <li>تبلیغات و بازاریابی</li>
-        <li>پشتیبانی مشتری</li>
+        <li>هزینه‌های سرور</li>
       </ul>
     </div>
     <div class="box revenue-streams">
-      <h3>جریان‌های درآمدی</h3>
+      <h3>جریان درآمدی</h3>
       <ul>
-        <li>اشتراک ماهانه/سالیانه</li>
-        <li>تبلیغات درون‌برنامه‌ای</li>
-        <li>قابلیت‌های پولی</li>
-        <li>همکاری‌های وابسته</li>
+        <li>خرید اشتراک</li>
+        <li>نسخه حرفه‌ای با امکانات بیشتر</li>
+        <li>نمایش تبلیغات هدفمند</li>
       </ul>
     </div>
   </div>
